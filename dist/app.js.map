@@ -1,1 +1,1 @@
-{"version":3,"sources":["src/app.js"],"names":[],"mappings":"AAAA,YAAY,CAAC","file":"src/app.js","sourcesContent":["'use strict';\n"]}
+{"version":3,"sources":["src/app.js"],"names":[],"mappings":"AAAA,YAAY,CAAC;;AAEb,OAAO,CAAC,GAAG,CAAC,aAAa,CAAC,CAAC","file":"src/app.js","sourcesContent":["'use strict';\n\nconsole.log('Some Tests!');\n"]}

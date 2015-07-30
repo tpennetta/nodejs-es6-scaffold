@@ -1,3 +1,11 @@
+/**
+* Grunt Taskrunner configuration file for automation of cleaning distribution
+* directory, compiling ES6 capable Javascript files using Babel, copying static
+* files from source to distribution directory, and concurrently running a file
+* watch process with Nodemon for compilation and restarting of Node servers
+* upon file changes
+* @author
+*/
 'use strict';
 
 module.exports = function (grunt) {
@@ -60,7 +68,12 @@ module.exports = function (grunt) {
           },
           ignore: ['node_modules/**', 'src/**'],
           ext: 'js',
-          watch: ['src']
+          watch: ['src'],
+          /*
+          * Delay is specified as a higher value to ensure Babel completes it's
+          * compile prior to Nodemon relaunching
+          */
+          delay: 2000
         }
       }
     },
