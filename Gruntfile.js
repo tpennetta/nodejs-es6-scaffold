@@ -1,15 +1,18 @@
 'use strict';
 
 module.exports = function (grunt) {
+  //Loads grunt libraries dynamically as they are referenced below
   require('load-grunt-tasks')(grunt);
 
   grunt.initConfig({
+    //Run Nodemon and Watch for all file changes concurrently.
     concurrent: {
       dev: ['watch', 'nodemon'],
       options: {
         logConcurrentOutput: true
       }
     },
+    //Compile ES6 compatible Javascript files using Babel from src->dist
     babel: {
         options: {
             sourceMap: true
@@ -24,6 +27,7 @@ module.exports = function (grunt) {
             }]
         }
     },
+    //Copy non-compiled (non-JS) files from src->dist
     copy: {
       main: {
         files: [{
@@ -34,10 +38,18 @@ module.exports = function (grunt) {
         }]
       }
     },
+    /* * *
+    * Watch for any file changes in src directory. Upon file modification,
+    * Delete the dist files, run the copy task, then run the Babel compile.
+    * * */
     watch: {
       files: ['./src/**/*'],
       tasks: ['clean', 'copy:main', 'babel:dist']
     },
+    /* * *
+    * Run Nodemon and watch for changes to dist Javascript files to reload
+    * node server
+    * * */
     nodemon: {
       dev: {
         script: 'dist/app.js',
