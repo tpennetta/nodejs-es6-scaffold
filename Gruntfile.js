@@ -4,7 +4,8 @@
 * files from source to distribution directory, and concurrently running a file
 * watch process with Nodemon for compilation and restarting of Node servers
 * upon file changes
-* @author
+* @author Tom Pennetta
+* @version 1.0, 07/30/2015
 */
 'use strict';
 
