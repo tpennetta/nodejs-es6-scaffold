@@ -69,12 +69,7 @@ module.exports = function (grunt) {
           },
           ignore: ['node_modules/**', 'src/**'],
           ext: 'js',
-          watch: ['src'],
-          /*
-          * Delay is specified as a higher value to ensure Babel completes it's
-          * compile prior to Nodemon relaunching
-          */
-          delay: 2000
+          watch: ['dist']
         }
       }
     },
